@@ -22,6 +22,13 @@
         </div>
         <div>
             <a href="/todos/{{ $todo->id }}/edit" class="mx-5 py-2 px-2 bg-yellow-500 cursor-pointer rounded text-white">Edit</a>
+            <span onclick="event.preventDefault(); if(confirm('Do you really want to delete?')) { document.getElementById('deleteTodo{{ $todo->id }}').submit(); }" class="px-2 text-2xl font-black text-red-500 cursor-pointer">
+                &cross;
+            </span>
+            <form action="/todos/{{ $todo->id }}" method="POST" id="deleteTodo{{ $todo->id }}" class="hidden">
+                @csrf
+                @method('DELETE')
+            </form>
         </div>
     </li>
     @endforeach

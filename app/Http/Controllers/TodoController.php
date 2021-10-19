@@ -40,6 +40,12 @@ class TodoController extends Controller
         return redirect('/todos')->with('message', 'Todo Updated!');
     }
 
+    public function destroy(Todo $todo)
+    {
+        $todo->delete();
+        return back()->with('message', 'Todo deleted!');
+    }
+
     public function complete(Todo $todo)
     {
         $todo->update(['completed' => !$todo->completed]);
