@@ -12,7 +12,7 @@ class TodoController extends Controller
     public function index()
     {
         return view('todos.index', [
-            'todos' => Todo::all()
+            'todos' => Todo::orderBy('completed')->get()
         ]);
     }
 
