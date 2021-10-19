@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/todos/create', [TodoController::class, 'create']);
+Route::post('/todos', [TodoController::class, 'store']);
 
 Route::get('/', function () {
     return view('welcome');
