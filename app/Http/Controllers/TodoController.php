@@ -39,4 +39,15 @@ class TodoController extends Controller
         $todo->update($request->validated());
         return redirect('/todos')->with('message', 'Todo Updated!');
     }
+
+    public function complete(Todo $todo)
+    {
+        $todo->update(['completed' => !$todo->completed]);
+
+        if ($todo->completed) {
+            return back()->with('message', 'Todo marked as completed!');
+        }
+
+        return back();
+    }
 }
