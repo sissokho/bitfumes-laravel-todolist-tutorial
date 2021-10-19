@@ -7,8 +7,12 @@
 </div>
 
 <ul>
+    <x-alert />
     @foreach ($todos as $todo)
-    <li>{{ $todo->title }}</li>
+    <li class="flex justify-between w-1/3 mx-auto mb-5">
+        <p>{{ $todo->title }}</p>
+        <a href="/todos/{{ $todo->id }}/edit" class="mx-5 py-2 px-2 bg-yellow-500 cursor-pointer rounded text-white">Edit</a>
+    </li>
     @endforeach
 </ul>
 @endsection

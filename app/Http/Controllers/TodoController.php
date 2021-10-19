@@ -26,4 +26,17 @@ class TodoController extends Controller
         Todo::create($request->validated());
         return back()->with('message', 'Todo Created Successfully.');
     }
+
+    public function edit(Todo $todo)
+    {
+        return view('todos.edit', [
+            'todo' => $todo
+        ]);
+    }
+
+    public function update(TodoCreateRequest $request, Todo $todo)
+    {
+        $todo->update($request->validated());
+        return redirect('/todos')->with('message', 'Todo Updated!');
+    }
 }
