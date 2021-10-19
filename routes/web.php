@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('todos', TodoController::class);
-Route::put('/todos/{todo}/complete', [TodoController::class, 'complete']);
+Route::put('/todos/{todo}/complete', [TodoController::class, 'complete'])->name('todos.complete');
+
 Route::get('/', function () {
     return view('welcome');
 });
