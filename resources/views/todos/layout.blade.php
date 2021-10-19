@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <div class="text-center pt-10">
-        @yield('content')
+    <div class="text-center flex justify-center pt-10">
+        <div class="w-1/3 border border-gray-400 rounded py-4">
+            @yield('content')
+        </div>
     </div>
 </body>
 

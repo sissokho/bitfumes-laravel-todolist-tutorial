@@ -1,7 +1,7 @@
 @extends('todos.layout')
 
 @section('content')
-<h1 class="text-2xl">Update this Todo</h1>
+<h1 class="text-2xl border-b py-4">Update this Todo</h1>
 <x-alert />
 <form action="/todos/{{ $todo->id }}" method="POST" class="py-5">
     @csrf
