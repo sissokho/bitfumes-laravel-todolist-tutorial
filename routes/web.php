@@ -16,14 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/todos', [TodoController::class, 'index']);
-Route::get('/todos/create', [TodoController::class, 'create']);
-Route::post('/todos', [TodoController::class, 'store']);
-Route::get('/todos/{todo}/edit', [TodoController::class, 'edit']);
-Route::patch('/todos/{todo}', [TodoController::class, 'update']);
-Route::delete('/todos/{todo}', [TodoController::class, 'destroy']);
-Route::put('/todos/{todo}/complete', [TodoController::class, 'complete']);
-
+Route::resource('todos', TodoController::class);
 Route::get('/', function () {
     return view('welcome');
 });
