@@ -29,7 +29,7 @@ class TodoController extends Controller
     public function store(TodoCreateRequest $request)
     {
         Auth::user()->todos()->create($request->validated());
-        return back()->with('message', 'Todo Created Successfully.');
+        return redirect()->route('todos.index')->with('message', 'Todo Created Successfully.');
     }
 
     public function edit(Todo $todo)
@@ -42,7 +42,7 @@ class TodoController extends Controller
     public function update(TodoCreateRequest $request, Todo $todo)
     {
         $todo->update($request->validated());
-        return redirect('/todos')->with('message', 'Todo Updated!');
+        return redirect()->route('todos.index')->with('message', 'Todo Updated!');
     }
 
     public function destroy(Todo $todo)
