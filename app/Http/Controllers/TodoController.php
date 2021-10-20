@@ -32,6 +32,13 @@ class TodoController extends Controller
         return redirect()->route('todos.index')->with('message', 'Todo Created Successfully.');
     }
 
+    public function show(Todo $todo)
+    {
+        return view('todos.show', [
+            'todo' => $todo
+        ]);
+    }
+
     public function edit(Todo $todo)
     {
         return view('todos.edit', [

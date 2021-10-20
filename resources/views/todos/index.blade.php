@@ -18,7 +18,7 @@
                 @csrf
                 @method('PUT')
             </form>
-            <p class="{{ $todo->completed ? 'line-through' : '' }}">{{ $todo->title }}</p>
+            <a href="{{ route('todos.show', $todo) }}" class="{{ $todo->completed ? 'line-through' : '' }}">{{ $todo->title }}</a>
         </div>
         <div>
             <a href="{{ route('todos.edit', ['todo' => $todo]) }}" class="mx-5 py-2 px-2 bg-yellow-500 cursor-pointer rounded text-white">Edit</a>
