@@ -25,14 +25,16 @@ class TodoCreateRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'description' => 'required'
+            'description' => 'required',
+            'steps.*.name' => 'sometimes|required|max:255'
         ];
     }
 
     public function messages()
     {
         return [
-            'title.max' => 'Todo title should not be greater than :max chars.'
+            'title.max' => 'Todo title should not be greater than :max chars.',
+            'steps.*.name.required' => 'Please fill the step'
         ];
     }
 }

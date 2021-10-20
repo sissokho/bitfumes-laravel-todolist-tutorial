@@ -28,7 +28,10 @@ class TodoController extends Controller
 
     public function store(TodoCreateRequest $request)
     {
-        Auth::user()->todos()->create($request->validated());
+        $todo = Auth::user()->todos()->create($request->safe()->except('steps'));
+        if ($request->steps) {
+            $todo->steps()->createMany($request->steps);
+        }
         return redirect()->route('todos.index')->with('message', 'Todo Created Successfully.');
     }
 

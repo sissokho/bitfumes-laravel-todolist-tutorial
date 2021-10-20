@@ -5,18 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class Step extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'completed',
-        'description'
+        'name'
     ];
-
-    public function steps()
-    {
-        return $this->hasMany(Step::class);
-    }
 }

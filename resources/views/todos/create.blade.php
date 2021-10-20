@@ -7,6 +7,9 @@
     @csrf
     <input type="text" name="title" class="p-2 border rounded" placeholder="Title">
     <textarea name="description" placeholder="Description" class="block m-auto border rounded my-4 p-2 resize-none"></textarea>
+    <div class="py-2">
+        @livewire('step')
+    </div>
     <input type="submit" value="Create" class="p-2 border rounded">
 </form>
 
