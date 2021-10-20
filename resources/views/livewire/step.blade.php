@@ -5,9 +5,11 @@
     </h2>
 
     @foreach ($steps as $step)
-    <input type="text" name="steps[][name]" class=" p-2 my-1 border rounded" placeholder="Describe step {{ $step }}">
-    <span class="px-2 text-2xl font-black text-red-500 cursor-pointer" wire:click="remove({{ $loop->index }})">
-        &cross;
-    </span>
+    <div wire:key="{{ $step }}">
+        <input type="text" name="steps[][name]" class=" p-2 my-1 border rounded" placeholder="Describe step {{ $step + 1 }}">
+        <span class="px-2 text-2xl font-black text-red-500 cursor-pointer" wire:click="remove({{ $step }})">
+            &cross;
+        </span>
+    </div>
     @endforeach
 </div>
