@@ -45,6 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
+
     public static function uploadAvatar($image)
     {
         $filename = $image->getClientOriginalName();
