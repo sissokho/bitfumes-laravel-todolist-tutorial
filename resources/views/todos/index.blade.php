@@ -8,7 +8,7 @@
 
 <ul class="pt-4">
     <x-alert />
-    @foreach ($todos as $todo)
+    @forelse ($todos as $todo)
     <li class="flex justify-between items-center  p-3">
         <div class="flex items-center">
             <span onclick="event.preventDefault(); document.getElementById('completeTodo{{ $todo->id }}').submit();" class="px-2 text-4xl font-black {{ $todo->completed ? 'text-green-400' : 'text-gray-400' }} cursor-pointer">
@@ -32,6 +32,8 @@
             </form>
         </div>
     </li>
-    @endforeach
+    @empty
+    <p>No todo available, create one.</p>
+    @endforelse
 </ul>
 @endsection
