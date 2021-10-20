@@ -5,7 +5,8 @@
 <x-alert />
 <form action="{{ route('todos.index') }}" method="POST" class="py-5">
     @csrf
-    <input type="text" name="title" class="py-2 px-2 border rounded">
+    <input type="text" name="title" class="p-2 border rounded" placeholder="Title">
+    <textarea name="description" placeholder="Description" class="block m-auto border rounded my-4 p-2 resize-none"></textarea>
     <input type="submit" value="Create" class="p-2 border rounded">
 </form>
 
